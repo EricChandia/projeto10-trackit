@@ -10,7 +10,7 @@ import { useState } from "react";
 
 export default function Login(){
     const navigate = useNavigate();
-    const { token, setToken } = useContext(TokenContext);
+    const { token, setToken, usuarioLogado, setUsuarioLogado } = useContext(TokenContext);
 
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
@@ -19,7 +19,8 @@ export default function Login(){
     function loginSucesso(resposta){
         console.log(resposta);
         setToken(resposta.data.token);
-        alert("Login efetuado com sucesso!");
+        setUsuarioLogado(resposta.data);
+        //alert("Login efetuado com sucesso!");
         navigate("/hoje");
     }
 
