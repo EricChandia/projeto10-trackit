@@ -13,11 +13,13 @@ export default function App(){
 
     const [token, setToken] = useState("");
     const [usuarioLogado, setUsuarioLogado] = useState("");
+    const [porcentagemConcluidos, setPorcentagemConcluidos] = useState(0); 
+    
 
         
     return(
         <BrowserRouter>
-        <TokenContext.Provider value={{token, setToken, usuarioLogado, setUsuarioLogado}}>
+        <TokenContext.Provider value={{token, setToken, usuarioLogado, setUsuarioLogado, porcentagemConcluidos, setPorcentagemConcluidos}}>
             <Routes>
                 <Route path="/" element={<Login/>}></Route>
                 <Route path="/cadastro" element={<Cadastro/>}></Route>

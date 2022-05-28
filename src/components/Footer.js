@@ -1,21 +1,37 @@
 import styled from "styled-components";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
+
+
 import Habitos from "./Habitos";
 import Hoje from "./Hoje";
 import Historico from "./Historico";
 
-import TokenContext from "../contexts/TokenContext";
+
+import { withTheme } from "styled-components";
 
 
-export default function Footer(){
+export default function Footer({porcentagemConcluidos}){
 
     const navigate = useNavigate();
 
     return(
         <FooterLayout>
             <HabitosButton onClick={() => navigate("/habitos")}>Hábitos</HabitosButton>
-            <PorcentagemHoje>50%</PorcentagemHoje>
+            <PorcentagemHoje onClick={()=> navigate("/hoje")}>
+                <CircularProgressbar value={porcentagemConcluidos} background={true} backgroundPadding={6} text={`Hoje`}
+                styles={{
+                    root: {},
+                    text: {transform: 'translate(-20%, 5%)', fill: "#fff"},
+                    path: {stroke: '#fff', strokeLinecap: 'round'},
+                    background: {fill: '#52b6FF'},
+                    trail: {stroke: 'transparent'},
+                    
+                         
+                }}/>
+
+            </PorcentagemHoje>
             <HistoricoButton onClick={()=> navigate("/historico")}>Histórico</HistoricoButton>
         </FooterLayout>
     );
@@ -40,6 +56,16 @@ const PorcentagemHoje = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 100%;
+
+    font-family: 'Lexend Deca';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17.976px;
+    line-height: 22px;
+    text-align: center;
+
+    color: #FFFFFF;
 `
 
 const FooterLayout = styled.div`

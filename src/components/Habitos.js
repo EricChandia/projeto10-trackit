@@ -10,6 +10,8 @@ import lixo from "../assets/img/Vector.png"
 
 function AdicionaHabito({setAdicionarHabito, salvaNovoHabito, setHabitos}){
 
+    
+
     const [dias, setDias] = useState([]);
     const [nomeHabito, setNomeHabito] = useState("");
 
@@ -65,6 +67,8 @@ function AdicionaHabito({setAdicionarHabito, salvaNovoHabito, setHabitos}){
 }
 
 function Habito({habitod, index, excluirHabito}){
+
+    
 
     console.log("habitod: " );
     console.log(habitod);
@@ -162,7 +166,7 @@ function ListaHabitos({habitos, setHabitos}){
 
 export default function Habitos(){
 
-    const { token, setToken, usuarioLogado, setUsuarioLogado } = useContext(TokenContext);
+    const { token, setToken, usuarioLogado, setUsuarioLogado, porcentagemConcluidos } = useContext(TokenContext);
     const [adicionarHabito, setAdicionarHabito] = useState(false);
     const [habitos, setHabitos] = useState([{}]);
 
@@ -222,7 +226,7 @@ export default function Habitos(){
 
             {habitos.length < 1 ? <p>Você ainda não tem nenhum hábito</p> : "" }
         </HabitosLayout>
-        <Footer/>
+        <Footer porcentagemConcluidos={porcentagemConcluidos}/>
         </>
     );
 }
