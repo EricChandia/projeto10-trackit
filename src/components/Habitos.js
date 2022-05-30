@@ -88,7 +88,7 @@ function Habito({habitod, index, excluirHabito}){
 
             {typeof habitod.days !== "undefined" ? 
             <DiasSemana>
-                <DiaSemana cor={habitod.days.includes(0) ? "#CFCFCF" +: "white"} texto={habitod.days.includes(0) ? "white" : "#CFCFCF"}>D</DiaSemana>
+                <DiaSemana cor={habitod.days.includes(0) ? "#CFCFCF" : "white"} texto={habitod.days.includes(0) ? "white" : "#CFCFCF"}>D</DiaSemana>
                 <DiaSemana texto={habitod.days.includes(1) ? "white" : "#CFCFCF"} cor={habitod.days.includes(1) ? "#CFCFCF" : "white"}>S</DiaSemana>
                 <DiaSemana texto={habitod.days.includes(2) ? "white" : "#CFCFCF"} cor={habitod.days.includes(2) ? "#CFCFCF" : "white"}>T</DiaSemana>
                 <DiaSemana texto={habitod.days.includes(3) ? "white" : "#CFCFCF"} cor={habitod.days.includes(3) ? "#CFCFCF" : "white"}>Q</DiaSemana>
