@@ -88,13 +88,13 @@ function Habito({habitod, index, excluirHabito}){
 
             {typeof habitod.days !== "undefined" ? 
             <DiasSemana>
-                <DiaSemana cor={habitod.days.includes(0) ? "#CFCFCF" : "white"}>D</DiaSemana>
-                <DiaSemana cor={habitod.days.includes(1) ? "#CFCFCF" : "white"}>S</DiaSemana>
-                <DiaSemana cor={habitod.days.includes(2) ? "#CFCFCF" : "white"}>T</DiaSemana>
-                <DiaSemana cor={habitod.days.includes(3) ? "#CFCFCF" : "white"}>Q</DiaSemana>
-                <DiaSemana cor={habitod.days.includes(4) ? "#CFCFCF" : "white"}>Q</DiaSemana>
-                <DiaSemana cor={habitod.days.includes(5) ? "#CFCFCF" : "white"}>S</DiaSemana>
-                <DiaSemana cor={habitod.days.includes(6) ? "#CFCFCF" : "white"}>S</DiaSemana>
+                <DiaSemana cor={habitod.days.includes(0) ? "#CFCFCF" +: "white"} texto={habitod.days.includes(0) ? "white" : "#CFCFCF"}>D</DiaSemana>
+                <DiaSemana texto={habitod.days.includes(1) ? "white" : "#CFCFCF"} cor={habitod.days.includes(1) ? "#CFCFCF" : "white"}>S</DiaSemana>
+                <DiaSemana texto={habitod.days.includes(2) ? "white" : "#CFCFCF"} cor={habitod.days.includes(2) ? "#CFCFCF" : "white"}>T</DiaSemana>
+                <DiaSemana texto={habitod.days.includes(3) ? "white" : "#CFCFCF"} cor={habitod.days.includes(3) ? "#CFCFCF" : "white"}>Q</DiaSemana>
+                <DiaSemana texto={habitod.days.includes(4) ? "white" : "#CFCFCF"} cor={habitod.days.includes(4) ? "#CFCFCF" : "white"}>Q</DiaSemana>
+                <DiaSemana texto={habitod.days.includes(5) ? "white" : "#CFCFCF"} cor={habitod.days.includes(5) ? "#CFCFCF" : "white"}>S</DiaSemana>
+                <DiaSemana texto={habitod.days.includes(6) ? "white" : "#CFCFCF"} cor={habitod.days.includes(6) ? "#CFCFCF" : "white"}>S</DiaSemana>
             </DiasSemana>
             :
             <></>
@@ -117,6 +117,8 @@ function ListaHabitos({habitos, setHabitos}){
         }
     }
 
+
+    
     useEffect(() => {
         
         const promise = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits`, 
@@ -379,7 +381,7 @@ const DiaSemana = styled.div`
     font-size: 19.976px;
     line-height: 25px;
 
-    color: #DBDBDB;
+    color:  ${props => props.texto};
 
     background: ${props => props.cor};
     border: 1px solid #D5D5D5;
